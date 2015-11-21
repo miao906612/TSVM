@@ -1,0 +1,12 @@
+dataTrainLabeled = feature(trainIndex(a),:);
+labelTrainLabeled = label(trainIndex(a));
+temp = (1 : length(label)).';
+temp(trainIndex) = [];
+dataTest = feature(temp,:);
+labelTest = label(temp);
+temp1 =(1 : length(label)).';
+b =[temp;trainIndex(a).'];
+temp1(b) = [];
+dataTrainUnlabeled = feature(temp1,:);
+labelTrainUnlabeled = label(temp1);
+save('data_separate.mat','dataTrainLabeled','labelTrainLabeled','dataTest','labelTest','dataTrainUnlabeled','labelTrainUnlabeled','indexTest','indexTrainLabeled','indexTrainUnlabeled');
